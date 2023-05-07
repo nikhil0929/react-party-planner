@@ -3,25 +3,40 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* In your CSS file */
+@import url("https://fonts.googleapis.com/css2?family=Satisfy&display=swap");
+
+@layer components {
+	.sidebar-icon {
+		@apply relative flex items-center justify-center h-12 w-12 mt-3 mb-3 mx-auto shadow-lg bg-gray-800 hover:bg-green-600 rounded-3xl hover:rounded-xl transition-all duration-200 ease-linear;
+	}
+
+	.sidebar-tooltip {
+		@apply absolute w-auto p-2 m-2 min-w-max left-16 rounded-md shadow-md text-white bg-gray-900 text-xs font-bold transition-all duration-100 scale-0 origin-left;
+	}
+
+	.active {
+		@apply flex items-center px-3 py-2 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700 border-solid border-2 border-lightBlue;
+	}
+
+	h1 {
+		@apply text-4xl font-bold text-gray-800;
+	}
+
+	h3 {
+		@apply text-xl text-gray-400;
+	}
 }
